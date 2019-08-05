@@ -1,0 +1,244 @@
+#wrapper{
+    height: 100vh;
+    width: 100%;
+    padding: 30px 40px;
+}
+
+.main-container{
+    width: 100%;
+    height: 100%;
+}
+
+.crypto-wrapper{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.crypto-container{
+    width: 100%;
+    height:100%;
+    background-color: #292f33;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.crypto-list{
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    display: block;
+}
+
+.input-div{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.crypto{
+    margin: 5px 0px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.crypto:hover{
+    background-color: rgba(0,0,0, 0.1)
+}
+
+.crypto-image{
+    margin-right: 10px;
+}
+
+.crypto-information{
+    font-size: 19px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.column-right{
+    float: right;
+    height: 100%;
+}
+
+.column-left{
+    float: left;
+    height: 100%;
+}
+
+.crypto-name{
+    display: grid;
+    clear: both;
+    margin-top: 10px;
+    grid-template-columns: auto auto;
+}
+
+.crypto-price-change, .crypto-icon{
+    display: grid;
+    clear: both;
+    margin-top: 10px;
+    grid-template-columns: 100px auto;
+}
+
+.crypto-price{
+    display: grid;
+    clear: both;
+    margin-top: 10px;
+    grid-template-columns: 50px auto;
+}
+
+.crypto-icon{
+    grid-column: 2;
+}
+
+.arrow{
+    grid-column: 2;
+    text-align: left;
+    padding-left: 10px;
+}   
+
+.price-label{
+    color:#efb144;
+}
+
+.crypto-price-change > div:nth-child(1){
+    margin-right: 10px;
+}
+
+.text-left{
+    text-align: left;
+    float: left;
+}
+
+.text-right{
+    text-align: right;
+    float: right;
+}
+
+.crypto-icon{
+    text-align: right;
+    font-size: 20px;
+}
+
+.crypto-label{
+    font-size: 15px
+}
+
+.price-up{
+    color:#01ff00;
+}
+
+.price-down{
+    color:#e00000;
+}
+
+
+
+.dropdown-div{
+    height: 70px;
+    width: 100%;
+    padding: 10px;
+    display: block;
+}
+
+.sort-by{
+    position: relative;
+}
+
+.sort-by:after {
+    content:"\f078";   
+    font-family: "FontAwesome";
+    font-size: 15px;
+    color:#949799;
+    right:10px; 
+    top:-3px;
+    position:absolute;
+    pointer-events:none;
+}
+
+.sort-by:before {
+    content:'';
+    right:4px; 
+    top:0px;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+
+.sort-by > select > option{
+    background-color: #1f2326;
+    border: none;
+    cursor: pointer;
+}
+
+
+.sort-by > select:hover{
+    background-color: rgba(0,0,0, 0.1);
+}
+
+.sort-by > select{
+    background-color: transparent ;
+    color:#949799;
+    font-size: 16px;
+    border-bottom:2px solid #efb144 !important;
+    appearance: none; 
+	-webkit-appearance: none;
+    -moz-appearance: none; 
+    width: 100%;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+
+
+.crypto-pagination{
+    width: 100%;
+    height: 40px;
+    bottom: 0px;
+    display: block;
+    position: absolute;
+    left:0;
+}
+
+.prev-page, .next-page{
+    height: 100%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.next-page:hover, .prev-page:hover{
+    background-color: rgba(0,0,0, 0.1);
+    border-radius: 100px;
+}
+
+.prev-page > i, .next-page > i{
+    font-size: 25px;
+    padding: 0px;
+    margin: 0px;
+    color:#949799;
+    border-radius: 100px;
+}
+
+.column-2{
+    width: 50%;
+    float: left;
+    position: relative;
+}
+
+.center{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}

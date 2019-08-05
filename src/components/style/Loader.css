@@ -1,0 +1,9 @@
+.loader-transparent{
+    background-color: transparent !important;
+    border: none !important;
+    height: 100%;
+}
+
+.loader-color::after{
+    border-color:#efb144 transparent transparent !important;
+}
