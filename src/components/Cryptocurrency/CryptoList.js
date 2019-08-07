@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAllCryptoValues, clearCryptoValues, sortCryptoValues } from '../../actions';
+import { 
+    getAllCryptoValues,
+    clearCryptoValues,
+    setCryptoListPage 
+} from '../../actions';
 
 //Components
 import Loader from '../Loader';
@@ -16,22 +20,24 @@ class CryptoList extends React.Component{
 
     componentDidMount(){
         this.numberOfCryptos = Math.floor((this.cryptoList.current.parentNode.offsetHeight - 120) / 80);
-        this.props.getAllCryptoValues(this.props.page, this.props.page * this.numberOfCryptos);
+        this.props.getAllCryptoValues(this.props.page, this.props.page * this.numberOfCryptos)
+        
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.page !== prevProps.page) {
             this.props.clearCryptoValues();
             if(this.props.page === 1){
-                this.props.getAllCryptoValues(this.props.page, this.numberOfCryptos);
+                this.props.getAllCryptoValues(this.props.page, this.numberOfCryptos, this.props.sortBy);
             } else{
-                this.props.getAllCryptoValues(this.props.page * this.numberOfCryptos + 1, this.numberOfCryptos);
+                this.props.getAllCryptoValues(this.props.page * this.numberOfCryptos + 1, this.numberOfCryptos, this.props.sortBy);
             }
         }
-        // if(this.props.sortBy !== ""){
-        //     this.props.clearCryptoValues();
-        //     this.props.sortCryptoValues(this.props.sortBy, this.props.page, this.numberOfCryptos)
-        // } 
+        if(this.props.sortBy !== prevProps.sortBy){
+            this.props.clearCryptoValues();
+            this.props.setCryptoListPage(1);
+            this.props.getAllCryptoValues(1, this.numberOfCryptos, this.props.sortBy)
+        }
     }
 
     renderCryptoList(){
@@ -66,7 +72,7 @@ class CryptoList extends React.Component{
 }
 
 const mapStateToProps = (state) =>{
-
+    console.log(state.crypto.cryptoValues)
     return{
         cryptoArray: state.crypto.cryptoValues.data,
         page: state.crypto.page,
@@ -77,5 +83,5 @@ const mapStateToProps = (state) =>{
 export default connect(mapStateToProps, { 
     getAllCryptoValues,
     clearCryptoValues,
-    sortCryptoValues
+    setCryptoListPage
  })(CryptoList);

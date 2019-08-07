@@ -7,9 +7,14 @@ import {
 
 import crypto from '../api/crypto';
 
-export const getAllCryptoValues = (start, end) =>{
+export const getAllCryptoValues = (start, end, sortBy = "") =>{
     return async dispatch => {
-        const cryptoArray = await crypto.get(`/listings/latest?start=${start}&limit=${end}`);
+        let cryptoArray;
+        if(sortBy != ""){
+            cryptoArray = await crypto.get(`/listings/latest?start=${start}&limit=${end}&sort=${sortBy}`);
+        } else{
+            cryptoArray = await crypto.get(`/listings/latest?start=${start}&limit=${end}`);
+        }
         dispatch({
             type: GET_CRYPTO_VALUES,
             payload: cryptoArray.data
@@ -34,15 +39,5 @@ export const setSortType = (sortType) =>{
     return{
         type:SORT_CRYPTO_VALUES,
         payload:sortType
-    }
-}
-
-export const sortCryptoValues = (sortBy, start, end) =>{
-    return async dispatch => {
-        const cryptoArray = await crypto.get(`/listings/latest?start=${start}&limit=${end}&sort=${sortBy}`);
-        dispatch({
-            type: GET_CRYPTO_VALUES,
-            payload: cryptoArray.data
-        })
     }
 }

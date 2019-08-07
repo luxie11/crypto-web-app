@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { setSortType } from '../../actions';
 
 class Dropdown extends React.Component{
+
     render(){
         return(
             <div className="dropdown-div">
@@ -23,7 +24,12 @@ class Dropdown extends React.Component{
     }
 }
 
+const mapStateToProps = (props) =>{
+    return{ 
+        sortBy: props.crypto.sortBy
+    }
+}
 
-export default connect(null,{ 
+export default connect(mapStateToProps,{ 
     setSortType 
 })(Dropdown);

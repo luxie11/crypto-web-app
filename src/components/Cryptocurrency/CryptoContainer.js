@@ -1,8 +1,5 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-import { getAllCryptoValues, clearCryptoValues, sortCryptoValues } from '../../actions';
-
 //Components
 import CryptoList from './CryptoList';
 import Dropdown from './Dropdown';
