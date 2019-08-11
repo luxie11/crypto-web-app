@@ -1,42 +1,41 @@
 import React from 'react';
+import './style/CryptoDetails.css';
+import Detail from './Detail';
+
 
 class CryptoDetails extends React.Component{
+
     render(){
         return(
-            <div>
-                <label>
-                    Name: Bitcoin
-                </label>
-                <br>
-                </br>
-                <label>
-                    Date added: 2019-10-10
-                </label>
-                <br>
-                </br>
-                <label>
-                    Change(1h): 10%
-                </label>
-                <br>
-                </br>
-                <label>
-                    Change(24h): 55%
-                </label>
-                <br>
-                </br>
-                <label>
-                    Change(7d): 88%
-                </label>
-                <br>
-                </br>
-                <label>
-                    Last updated: saddsadsadsadsa
-                </label>
-                <br>
-                </br>
-                <label>
-                   Total suply: 231231231231
-                </label>
+            <div className="crypto-details">
+                <div className="column-2">
+                    <Detail 
+                        name="Date added:"
+                        value={this.props.dateAdded.split('T')[0]}
+                    />
+                    <Detail 
+                        name="Last updated:"
+                        value={this.props.lastUpdated.split('T')[0]}
+                    />
+                    <Detail 
+                        name="Total suply:"
+                        value={this.props.totalSuply}
+                    />
+                </div>
+                <div className="column-2">
+                    <Detail 
+                        name="Change(1h):"
+                        value={this.props.change1Hour}
+                    />
+                    <Detail 
+                        name="Change(24h):"
+                        value={this.props.change24Hours}
+                    />
+                    <Detail 
+                        name="Change(7d):"
+                        value={this.props.change7Days}
+                    />
+                </div>
             </div>
         )
     }

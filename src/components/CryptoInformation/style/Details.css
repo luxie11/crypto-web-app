@@ -1,0 +1,16 @@
+
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    padding: 10px 0px;
+}
+
+.detail-name{
+    display: block;
+    position: relative;
+    width: 125px;
+    font-weight: 700;
+    color:#efb144;
+}

@@ -3,7 +3,7 @@ import React from 'react';
 const CryptoContainer = (props) =>{
     
     return(
-        <div className="crypto">
+        <div className="crypto" onClick={(e)=>{ e.preventDefault(); props.click(props.id, props.symbol);}}>
             <div className="crypto-image">
                 <img alt={props.name} src={`https://s2.coinmarketcap.com/static/img/coins/32x32/${props.id}.png`}/>
             </div>
@@ -17,7 +17,7 @@ const CryptoContainer = (props) =>{
                             <label className="crypto-label">Price:</label> 
                         </div>
                         <div className="text-left">
-                            <label className="price-label">{Math.floor(props.price * 100) / 100}$</label>
+                            <label className="price-label">{Math.floor(props.price * 1000) / 100}$</label>
                         </div>
                     </div>
                 </div>

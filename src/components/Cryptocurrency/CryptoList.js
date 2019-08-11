@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import { 
     getAllCryptoValues,
     clearCryptoValues,
-    setCryptoListPage 
+    setCryptoListPage,
+    selectCryptoValue
 } from '../../actions';
+
+import CryptoPagination from './CryptoPagination';
 
 //Components
 import Loader from '../Loader';
@@ -15,11 +18,13 @@ class CryptoList extends React.Component{
     constructor(props){
         super(props);
         this.cryptoList = React.createRef();
+        this.containerHeight = 0;
         this.numberOfCryptos = 0;
     }
 
     componentDidMount(){
-        this.numberOfCryptos = Math.floor((this.cryptoList.current.parentNode.offsetHeight - 120) / 80);
+        this.containerHeight = this.cryptoList.current.parentNode.offsetHeight - 120;
+        this.numberOfCryptos = Math.floor((this.cryptoList.current.parentNode.offsetHeight - 120) / 90);
         this.props.getAllCryptoValues(this.props.page, this.props.page * this.numberOfCryptos)
         
     }
@@ -40,7 +45,7 @@ class CryptoList extends React.Component{
         }
     }
 
-    renderCryptoList(){
+    createCryptoList(){
         var { cryptoArray } = this.props;
         if(!cryptoArray){
             return <Loader />
@@ -55,33 +60,39 @@ class CryptoList extends React.Component{
                     slug={crypto.slug}
                     key={crypto.id}
                     id={crypto.id}
-               />
+                    click={this.props.selectCryptoValue}
+                />
             )
         })
     }
 
+ 
     render(){
         return(
-            <div
-                ref={this.cryptoList}
-                className="crypto-list">
-                {this.renderCryptoList()}
-            </div>
+            <React.Fragment>
+                <div
+                    ref={this.cryptoList}
+                    className="crypto-list">
+                    {this.createCryptoList()}
+                </div>
+                <CryptoPagination />
+            </React.Fragment>
         )
     }
 }
 
 const mapStateToProps = (state) =>{
-    console.log(state.crypto.cryptoValues)
     return{
         cryptoArray: state.crypto.cryptoValues.data,
         page: state.crypto.page,
-        sortBy: state.crypto.sortBy
+        sortBy: state.crypto.sortBy,
+        selectedCryptoInformation: state.crypto.selectedCryptoInformation
     }
 }
 
 export default connect(mapStateToProps, { 
     getAllCryptoValues,
     clearCryptoValues,
-    setCryptoListPage
+    setCryptoListPage,
+    selectCryptoValue
  })(CryptoList);

@@ -1,17 +1,40 @@
 import React from 'react';
-import {Line} from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
+
+import './style/CryptoChart.css';
+import Loader from '../Loader';
 
 class cryptoChart extends React.Component{
 
-    render(){
+    getXaxis() {
+        let dateArray = [];
+        this.props.history.Data.map(date =>{
+            dateArray.push(new Date(date.time * 1000).toISOString().slice(0,10))
+        })
+        return dateArray;
+    }
+
+    getYaxis(){
+        let priceArray = [];
+        this.props.history.Data.map(element =>{
+            priceArray.push(element.high);
+        });
+        return priceArray;
+    }
+
+    renderCryptoChart(){
+        if(!this.props.history){
+            return <Loader />
+        }
+       
         const data =  {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: this.getXaxis(),
             datasets: 
             [{
-                label: 'My First dataset',
-                fill: false,
-                lineTension: 0.4,
-                backgroundColor: 'rgba(239, 177, 68)',
+                label: 'Price by day',
+                fill: true,
+                lineTension: 0,
+                backgroundColor: 'rgba(239, 177, 68, 0.3)',
                 borderColor: 'rgba(239, 177, 68)',
                 borderCapStyle: 'butt',
                 borderDash: [],
@@ -26,7 +49,7 @@ class cryptoChart extends React.Component{
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
                 pointHitRadius: 10,
-                data: [65, 59, 80, 81, 56, 55, 40]
+                data: this.getYaxis()
             }]
         }
 
@@ -37,23 +60,30 @@ class cryptoChart extends React.Component{
                     borderDash: [2, 2],
                     borderWidth: 2,
                     mode: 'vertical',
-                    value: 10,
+                    value: 100,
                     scaleID: 'x-axis-0',
                 }]
             },
             maintainAspectRation: false
-        };      
-
-        return(
-             <Line
+        }; 
+        return(  
+            <Line
                 data={data}
                 width={300}
-                height={100}
+                height={70}
                 options={options}
-             />
+            />
+        )     
+    }
+
+    render(){
+        return(
+            <div className="crypto-chart">
+                {this.renderCryptoChart()}
+           </div>
        )
     }
 }
-   
 
-export default cryptoChart;
+
+export default cryptoChart

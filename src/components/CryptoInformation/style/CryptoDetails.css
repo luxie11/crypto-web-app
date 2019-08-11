@@ -1,0 +1,22 @@
+.crypto-details{
+    width: 100%;
+    position: relative;
+    display: flex;
+    padding: 10px 30px;
+}
+
+.labeled-center{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.detailed-information{
+    font-size:20px;
+}
+
+.crypto-header{
+    font-weight: 600;
+}
+

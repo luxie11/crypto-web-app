@@ -2,25 +2,24 @@ import React from 'react';
 import './style/App.css';
 
 import CryptoContainer from './Cryptocurrency/CryptoContainer';
-import CryptoChart from './CryptoInformation/CryptoChart';
-import CryptoDetails from './CryptoInformation/CryptoDetails';
+import CryptoInformation from './CryptoInformation';
 
 class App extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.windowHeight =  window.innerWidth;
+    }
 
     render(){
         return(
             <div id="wrapper">
                 <div className="ui grid main-container">
-                    <div className="five wide column">
+                    <div className={`${this.windowHeight >= 1024 ? 'five': 'sixteen'} wide column`}>
                         <CryptoContainer />
                     </div>
-                    <div className="eleven wide column">
-                        <div className="crypto-container">
-                        <CryptoDetails />
-                            <div className="crypto-chart">
-                                <CryptoChart />
-                            </div>
-                        </div>
+                    <div className={`${this.windowHeight >= 1024 ? 'eleven': 'sixteen'} wide column`}>
+                        <CryptoInformation />
                     </div>
                 </div>
             </div>

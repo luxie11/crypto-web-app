@@ -1,0 +1,33 @@
+.description{
+    text-align: justify;
+    font-size: 18px;
+    position: relative;
+    padding: 10px 30px;
+}
+
+.crypto-links{
+    padding: 0px 30px;
+}
+
+.links-list{
+    width: 100%;
+}
+
+.link-item:not(:first-child){
+    margin-left: 10px;
+    width: auto;
+}
+
+.header{
+    height: 50px;
+    color:#efb144;
+}
+
+.link{
+    color:#949799;
+    font-size: 30px;
+}
+
+.link:hover{
+    color:#f89c2e;
+}

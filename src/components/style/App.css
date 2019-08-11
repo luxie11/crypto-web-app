@@ -1,11 +1,15 @@
 #wrapper{
-    height: 100vh;
     width: 100%;
-    padding: 30px 40px;
+    padding: 30px;
+    height: 100vh;
+    position: relative;
+}
+
+.ui.grid{
+    margin: 0 !important;
 }
 
 .main-container{
-    width: 100%;
     height: 100%;
 }
 
@@ -38,7 +42,6 @@
 
 .crypto{
     margin: 5px 0px;
-    height: 80px;
     display: flex;
     align-items: center;
     border-radius: 10px;
@@ -77,6 +80,7 @@
     clear: both;
     margin-top: 10px;
     grid-template-columns: auto auto;
+    cursor: pointer;
 }
 
 .crypto-price-change, .crypto-icon{
@@ -91,6 +95,7 @@
     clear: both;
     margin-top: 10px;
     grid-template-columns: 50px auto;
+    cursor: pointer;
 }
 
 .crypto-icon{
@@ -202,8 +207,8 @@
     width: 100%;
     height: 40px;
     bottom: 0px;
-    display: block;
     position: absolute;
+    display: block;
     left:0;
 }
 
@@ -220,7 +225,9 @@
     background-color: rgba(0,0,0, 0.1);
     border-radius: 100px;
 }
-
+.next-page:hover > i, .prev-page:hover > i{
+    color:#efb144;
+}
 .prev-page > i, .next-page > i{
     font-size: 25px;
     padding: 0px;
@@ -243,9 +250,240 @@
     align-items: center;
 }
 
-.crypto-chart{
-    display: flex;
-    position: absolute;
-    bottom: 20px;
-    width: 97%;
+
+@media only screen and (min-width: 1279px) and (max-width: 1450px) {
+    .crypto-information{
+        font-size: 19px;
+    }
+
+    .column-left, .column-right{
+        width: 100%;
+    }
+
+    .crypto-information{
+        display: block;
+    }
+    
+    .crypto-price-change{
+        display: flex;
+        width: 65%;
+        float: left;
+        clear: none;
+    }
+
+    .crypto-icon{
+        display: flex;
+        clear: none;
+        width: 35%;
+        float: right;
+    }
+
 }
+
+
+@media only screen and (min-width: 1025px) and (max-width: 1278px) {
+
+    .crypto-information{
+        font-size: 19px;
+    }
+
+    .column-left, .column-right{
+        width: 100%;
+    }
+
+    .crypto-information{
+        display: block;
+    }
+    
+    .crypto-price-change{
+        display: flex;
+        width: 65%;
+        float: left;
+        clear: none;
+    }
+
+    .crypto-icon{
+        display: none;
+    }
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+  
+@media (min-width: 870px) and (max-width: 1024px) {
+    #wrapper{
+        height: 100%;
+    }
+
+    .crypto-pagination{
+        position: relative;
+    }
+
+    .crypto-list{
+        min-height: 460px;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .dropdown-div, .crypto-pagination{
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+}
+
+@media (min-width: 768px) and (max-width: 869px) {
+    #wrapper{
+        height: 100%;
+    }
+
+    .crypto-pagination{
+        position: relative;
+    }
+
+    .crypto-list{
+        min-height: 460px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .dropdown-div, .crypto-pagination{
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    #wrapper{
+        height: 100%;
+    }
+
+    .crypto-pagination{
+        position: relative;
+    }
+
+    .crypto-list{
+        min-height: 600px;
+    }
+
+    .crypto-information{
+        font-size: 19px;
+    }
+
+    .arrow{
+        padding-left: 0px;
+    }
+
+    .column-left, .column-right{
+        width: 100%;
+    }
+
+    .crypto-information{
+        display: block;
+    }
+    
+    .crypto-price-change{
+        display: flex;
+        width: 60%;
+        float: left;
+        clear: none;
+    }
+
+    .crypto-icon{
+        display: flex;
+        clear: none;
+        width: 40%;
+        float: right;
+    }
+    .crypto-details > .column-2, .crypto-details{
+        width: 100%;
+    }
+
+    .crypto-details{
+        display: block !important;
+        margin-bottom: 20px;
+        height: 260px;
+    }
+
+    .crypto-links{
+        height: 100px;
+    }
+
+    .crypto-links > .header{
+        height: 70px;
+    }
+}
+  
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+@media (min-width: 300px) and (max-width: 480px) {
+
+    .crypto-information{
+        font-size: 16px;
+    }
+
+    .crypto-details{
+        padding: 10px;
+        height: 290px;
+    }
+
+    .crypto-container{
+        padding: 5px;
+    }
+
+    .crypto-icon{
+        display: none !important;
+    }
+
+    .crypto-information{
+        font-size: 19px;
+    }
+
+    .column-left, .column-right{
+        width: 100%;
+    }
+
+    .crypto-information{
+        display: block;
+    }
+    
+    .crypto-price-change{
+        display: flex;
+        width: 60%;
+        float: left;
+        clear: none;
+    }
+
+    .crypto-icon{
+        display: flex;
+        clear: none;
+        width: 40%;
+        float: right;
+    }
+    .crypto-details > .column-2, .crypto-details{
+        width: 100%;
+    }
+
+    .crypto-details{
+        display: block !important;
+        margin-bottom: 20px;
+        height: 260px;
+    }
+
+    .crypto-links{
+        height: 200px;
+    }
+
+    .crypto-links > .header{
+        height: 110px;
+    }
+
+    .description{
+        padding: 10px;
+    }
+ }
