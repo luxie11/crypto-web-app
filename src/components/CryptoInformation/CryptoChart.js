@@ -6,6 +6,18 @@ import Loader from '../Loader';
 
 class cryptoChart extends React.Component{
 
+    state = { width: window.innerWidth }
+
+    componentDidMount(){
+        window.addEventListener("resize", this.updateDimensions)
+    }
+
+    updateDimensions = () =>{
+        this.setState({
+            width:window.innerWidth
+        })
+    }
+
     getXaxis() {
         let dateArray = [];
         this.props.history.Data.map(date =>{
@@ -70,7 +82,7 @@ class cryptoChart extends React.Component{
             <Line
                 data={data}
                 width={300}
-                height={70}
+                height={`${this.state.width >= 1024 ? 70 : 250}`}
                 options={options}
             />
         )     
