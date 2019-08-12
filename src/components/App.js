@@ -8,17 +8,30 @@ class App extends React.Component{
 
     constructor(props){
         super(props);
-        this.windowHeight =  window.innerWidth;
+        this.state = {
+            width: window.innerWidth
+        }
+        this.updateDimensions = this.updateDimensions.bind(this);
     }
+
+    componentDidMount(){
+        window.addEventListener("resize", this.updateDimensions);
+    }
+
+    updateDimensions() {
+        this.setState({
+          width: window.innerWidth
+        });
+      }
 
     render(){
         return(
             <div id="wrapper">
                 <div className="ui grid main-container">
-                    <div className={`${this.windowHeight >= 1024 ? 'five': 'sixteen'} wide column`}>
+                    <div className={`${this.state.width >= 1024 ? 'five': 'sixteen'} wide column`}>
                         <CryptoContainer />
                     </div>
-                    <div className={`${this.windowHeight >= 1024 ? 'eleven': 'sixteen'} wide column`}>
+                    <div className={`${this.state.width >= 1024 ? 'eleven': 'sixteen'} wide column`}>
                         <CryptoInformation />
                     </div>
                 </div>

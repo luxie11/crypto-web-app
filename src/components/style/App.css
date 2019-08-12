@@ -423,6 +423,21 @@
 */
 @media (min-width: 300px) and (max-width: 480px) {
 
+    #wrapper{
+        height: 100%;
+        padding-left: 0px;
+        padding-top:0px;
+        padding-bottom:0px;
+        padding-right:0px;
+    }
+
+    .crypto-pagination{
+        position: relative;
+    }
+
+    .crypto-list{
+        min-height: 600px;
+    }
     .crypto-information{
         font-size: 16px;
     }
