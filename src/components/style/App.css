@@ -1,7 +1,8 @@
 #wrapper{
     width: 100%;
     padding: 30px;
-    min-height: 100vh;
+    display: flex;
+    height: 100%;
     position: relative;
 }
 
