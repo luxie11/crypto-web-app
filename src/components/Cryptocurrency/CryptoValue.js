@@ -5,7 +5,7 @@ const CryptoContainer = (props) =>{
     return(
         <div className="crypto" onClick={(e)=>{ e.preventDefault(); props.click(props.id, props.symbol);}}>
             <div className="crypto-image">
-                <img style="" alt={props.name} src={`https://s2.coinmarketcap.com/static/img/coins/32x32/${props.id}.png`}/>
+                <img alt={props.name} src={`https://s2.coinmarketcap.com/static/img/coins/32x32/${props.id}.png`}/>
             </div>
             <div className="crypto-information">
                 <div className="column-left ">

@@ -66,6 +66,14 @@ class CryptoList extends React.Component{
         })
     }
 
+    renderLoader(){
+        var { cryptoArray } = this.props;
+        if(!cryptoArray){
+            return;
+        }
+        return  <CryptoPagination />;
+    }
+
  
     render(){
         return(
@@ -75,7 +83,7 @@ class CryptoList extends React.Component{
                     className="crypto-list">
                     {this.createCryptoList()}
                 </div>
-                <CryptoPagination />
+               {this.renderLoader()}
             </React.Fragment>
         )
     }

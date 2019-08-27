@@ -1,8 +1,8 @@
 #wrapper{
     width: 100%;
     padding: 30px;
-    display: flex;
-    height: 100%;
+    min-height: 100%;
+    background-color: #1f2326;
 }
 
 .ui.grid{
@@ -10,7 +10,7 @@
 }
 
 .main-container{
-    height: 100%;
+    min-height: 93vh;
 }
 
 .crypto-wrapper{
@@ -207,7 +207,7 @@
     width: 100%;
     height: 40px;
     bottom: 0px;
-    position: absolute;
+    /* position: absolute; */
     display: block;
     left:0;
 }
@@ -314,7 +314,7 @@
   
 @media (min-width: 870px) and (max-width: 1024px) {
     #wrapper{
-        height: 100%;
+        min-height: 100%;
     }
 
     .crypto-pagination{
@@ -335,7 +335,7 @@
 
 @media (min-width: 768px) and (max-width: 869px) {
     #wrapper{
-        height: 100%;
+        min-height: 100%;
     }
 
     .crypto-pagination{
@@ -358,7 +358,7 @@
 @media (min-width: 481px) and (max-width: 767px) {
 
     #wrapper{
-        height: 100%;
+        min-height: 100%;
     }
 
     .crypto-pagination{
@@ -424,7 +424,7 @@
 @media (min-width: 300px) and (max-width: 480px) {
 
     #wrapper{
-        height: 100%;
+        min-height: 100%;
         padding-left: 0px;
         padding-top:0px;
         padding-bottom:0px;
