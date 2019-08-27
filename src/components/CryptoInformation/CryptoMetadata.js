@@ -29,7 +29,7 @@ class CryptoMetadata extends React.Component{
             const key = Object.keys(element)[0];
             const value = element[key];
             return(
-                <a target="_blank" className="link" href={value}>
+                <a key={key} target="_blank" rel="noopener noreferrer" className="link" href={value}>
                     <i className={`icon ${key}`}></i>
                 </a>
             )

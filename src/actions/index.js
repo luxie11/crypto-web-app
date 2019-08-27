@@ -16,7 +16,7 @@ import history from '../api/history';
 export const getAllCryptoValues = (start, end, sortBy = "") =>{
     return async dispatch => {
         let cryptoArray;
-        if(sortBy != ""){
+        if(sortBy !== ""){
             cryptoArray = await crypto.get(`/listings/latest?start=${start}&limit=${end}&sort=${sortBy}`);
         } else{
             cryptoArray = await crypto.get(`/listings/latest?start=${start}&limit=${end}`);

@@ -21,7 +21,7 @@ class cryptoChart extends React.Component{
     getXaxis() {
         let dateArray = [];
         this.props.history.Data.map(date =>{
-            dateArray.push(new Date(date.time * 1000).toISOString().slice(0,10))
+            return dateArray.push(new Date(date.time * 1000).toISOString().slice(0,10))
         })
         return dateArray;
     }
@@ -29,7 +29,7 @@ class cryptoChart extends React.Component{
     getYaxis(){
         let priceArray = [];
         this.props.history.Data.map(element =>{
-            priceArray.push(element.high);
+            return priceArray.push(element.high);
         });
         return priceArray;
     }
@@ -78,11 +78,12 @@ class cryptoChart extends React.Component{
             },
             maintainAspectRation: false
         }; 
+        const chartHeight = this.state.width >= 1024 ? 70 : 250
         return(  
             <Line
                 data={data}
                 width={300}
-                height={`${this.state.width >= 1024 ? 70 : 250}`}
+                height={chartHeight}
                 options={options}
             />
         )     
