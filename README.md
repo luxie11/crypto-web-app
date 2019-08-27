@@ -23,3 +23,7 @@ localhost:3000
 
 <br>
 https://crypto-app-online.herokuapp.com
+
+PROBLEM -> On heroku PaaS doesn't load images from API
+
+![Screenshot_2019-08-27 CryptoApp](https://user-images.githubusercontent.com/29857050/63764996-c4156500-c8d0-11e9-95a1-8858d3e25a6d.png)
