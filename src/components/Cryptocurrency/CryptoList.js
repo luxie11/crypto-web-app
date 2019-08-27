@@ -23,8 +23,8 @@ class CryptoList extends React.Component{
     }
 
     componentDidMount(){
-        this.containerHeight = this.cryptoList.current.parentNode.offsetHeight - 120;
-        this.numberOfCryptos = Math.floor((this.cryptoList.current.parentNode.offsetHeight - 120) / 90);
+        this.containerHeight = this.cryptoList.current.parentNode.offsetHeight - 100;
+        this.numberOfCryptos = Math.floor((this.cryptoList.current.parentNode.offsetHeight - 100) / 90);
         this.props.getAllCryptoValues(this.props.page, this.props.page * this.numberOfCryptos)
         
     }
