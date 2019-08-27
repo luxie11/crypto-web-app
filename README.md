@@ -22,4 +22,4 @@ To Visit App:
 localhost:3000
 
 <br>
-https://desolate-atoll-20502.herokuapp.com
+https://crypto-app-online.herokuapp.com
